@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: insider
+      POSTGRES_PASSWORD: insider
+      POSTGRES_DB: insider
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+  app:
+    build: .
+    environment:
+      DB_CONN: postgres://insider:insider@db:5432/insider?sslmode=disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
