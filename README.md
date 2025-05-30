@@ -7,15 +7,12 @@ Basit bir futbol ligi simülasyonu; Go backend, HTML/JS frontend ve Postman kole
 - Docker & Docker Compose
 - (Opsiyonel) Python3 (frontend’i statik sunmak için)
 
-## Kurulum & Çalıştırma
+## Çalıştırma
 
-1. Repo’yu klonla / zaten indirmişsen adım atla:
-   ```bash
-   git clone https://github.com/busemesee/insider-league-sim.git
-   cd insider-league-sim
-
-
-   ## Frontend
+Docker Compose ile ayağa kaldır:
+```bash
+docker compose up -d --build
+## Frontend (opsiyonel)
 
 Statik dosyayı yerelde görmek istersen:
 ```bash
